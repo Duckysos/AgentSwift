@@ -1,0 +1,20 @@
+Jane Doe
+jane.doe@example.com
+LinkedIn: https://linkedin.com/in/janedoe | Location: Remote
+
+Summary:
+Data and ML engineer with 5+ years building production NLP systems and analytics pipelines. Strong in Python, SQL, and cloud (GCP/AWS), delivering measurable impact through model deployment and experimentation.
+
+Skills:
+Python, SQL, NLP, Machine Learning, Data Engineering, Airflow, BigQuery, Vertex AI, Docker, Kubernetes, Git
+
+Experience:
+- ML Engineer, Acme Corp (2021-Present): Built and deployed NLP classification improving triage accuracy by 18%; productionized data pipeline with Airflow + BigQuery; led A/B experiments.
+- Data Engineer, Beta Analytics (2019-2021): Developed ELT pipelines; optimized warehouse queries; collaborated with data science on feature delivery.
+
+Education:
+BS Computer Science, State University
+
+Projects:
+- Resume Tailor: Auto-tailors resumes to JDs using Gemini.
+- Churn Predictor: End-to-end training + deployment on Vertex AI.

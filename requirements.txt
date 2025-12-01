@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+google-adk[web]
+google-genai
+PyPDF2
+fpdf
+python-docx
+pydantic

@@ -1,0 +1,23 @@
+Company: Nimbus Labs
+Role: Machine Learning Engineer
+Location: Remote (US)
+
+About the role:
+We build ML features across our product suite with a focus on NLP and recommendation systems. You will own model development, evaluation, and productionization in close partnership with product and data.
+
+Responsibilities:
+- Design, train, and evaluate NLP and recommender models using Python.
+- Ship models to production with CI/CD, containers, and observability.
+- Partner with data engineering on feature pipelines (BigQuery/SQL) and Airflow orchestration.
+- Run A/B tests and iterate based on metrics.
+
+Must-haves:
+- 3+ years with Python and SQL in production settings.
+- Experience deploying ML models (preferably NLP) to cloud (GCP/AWS) with containers.
+- Familiarity with Airflow or similar orchestration.
+- Strong communication and collaboration skills.
+
+Nice-to-haves:
+- Vertex AI or SageMaker experience.
+- Kubernetes, Docker, and observability tooling.
+- Recommender systems experience.
