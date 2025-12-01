@@ -55,6 +55,66 @@ A file saving tool allows Agent Swift to export finished resumes and cover lette
 
 Agent Swift demonstrates how modular agentic systems can streamline the job application process. By distributing tasks among dedicated agents that handle parsing, analysis, matching, writing, and editing, it creates a structured and repeatable workflow. The orchestrator ensures that each step progresses only when validation checks pass, making the process reliable and scalable. The final result is a set of application materials that are polished, targeted, and aligned with the expectations of each employer.
 
-##Value Statement
+## Value Statement
 
 Agent Swift cuts the time needed to tailor resumes and cover letters from hours to minutes. It enables applicants to maintain a consistently high standard across all applications and helps them apply to more roles without sacrificing quality. With further development, an additional agent could scan job boards, identify suitable roles, and automatically prepare tailored drafts for review. Integrating this functionality would involve connecting external data sources through MCP servers or custom ingestion tools.
+
+# Resume Tailor (Google ADK + Gemini)
+
+## Prerequisites
+- Python 3.10+
+- A Google API key in `.env` (for LLM mode):
+  ```
+  GOOGLE_API_KEY=your_key_here
+  ```
+- If you want offline-only use, you can skip the API key.
+
+## Install
+```
+pip install -r requirements.txt
+```
+
+## Running (FastAPI)
+Start the API (loads `.env` if `python-dotenv` is installed):
+```
+python -m uvicorn api:app --reload --host 0.0.0.0 --port 8000
+```
+Open http://localhost:8000/docs and call `/tailor`:
+- `resume_file`: upload pdf/txt/md
+- `jd_file`: upload the JD text
+- `offline`: optional `true` to skip LLM calls
+
+Curl example (PowerShell):
+```
+curl -X POST "http://localhost:8000/tailor" ^
+  -F "resume_file=@sample_resume.txt" ^
+  -F "jd_file=@job_posting.txt" ^
+  -F "offline=true"
+```
+
+## Running (CLI)
+```
+python cli.py --resume sample_resume.txt --jd job_posting.txt --format md
+```
+Options:
+- `--format`: md|txt|pdf|docx (pdf/docx need fpdf/python-docx installed)
+- `--offline`: force heuristic (no LLM)
+
+## Running (ADK Web)
+If your `adk` supports the `--app` flag:
+```
+adk web --app adk_app:web_app --host 0.0.0.0 --port 8000
+```
+If not, run FastAPI as above.
+In the web UI, use the Tools panel:
+- `tailor_resume_tool`: upload resume file + paste JD; optional `offline=true`.
+- `tailor_resume_text_tool`: paste resume text + JD; optional `offline=true`.
+
+## Offline vs LLM
+- LLM mode (default): ensure `GOOGLE_API_KEY` is loaded; agents call Gemini.
+- Offline: add `offline=true` (API/web) or `--offline` (CLI) to use heuristic fallbacks.
+
+## Outputs
+- API/Web return JSON with `tailored_resume`, `tailored_cover`, and `markdown`.
+- CLI writes the chosen format to disk; Markdown includes normalized bullets/headings.
+
