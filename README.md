@@ -18,7 +18,7 @@ Agentic systems can evaluate job descriptions, extract essential qualifications,
 
 The system revolves around the `swift_orchestrator_agent`, which coordinates all sub agents. It uses the ADK’s Agent class to define instructions, reasoning parameters, and the tools it can call. The orchestrator controls a series of specialized agents, each performing a specific stage of the tailoring workflow.
 
-##Resume Parser Agent
+## Resume Parser Agent
 
 The `resume_parser_agent` processes the applicant’s resume and extracts structured information such as work experience, skills, education, and key achievements. It normalizes formatting differences and produces a consistent representation of the user’s background for downstream agents.
 
@@ -34,7 +34,7 @@ The `resume_jd_matcher_agent` compares insights from the resume parser to the jo
 
 The `swift_writer_agent` generates updated resume sections and a job specific cover letter. It uses the matcher output to guide writing decisions and applies professional tone and structure. Quality checks ensure that the generated material is clear and aligns with the job posting.
 
-##Editor Agent
+## Editor Agent
 
 The `swift_editor_agent` refines the tailored content based on user feedback. It adjusts tone, improves clarity, corrects formatting inconsistencies, and ensures the final output is ready for export.
 
